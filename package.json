@@ -1,24 +1,25 @@
 {
-  "name": "Doit",
+  "name": "do-it-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha routes/user/user.spec.js && exit 1",
     "dev": "nodemon index.js",
-    "reset": "node utils/resetTables.js"
+    "reset": "node utils/resetTables.js",
+    "start": "NODE_ENV=prod pm2 start index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codestates/doit-server.git"
+    "url": "git+https://github.com/angelxtry/do-it-server.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/codestates/doit-server/issues"
+    "url": "https://github.com/angelxtry/do-it-server/issues"
   },
-  "homepage": "https://github.com/codestates/doit-server#readme",
+  "homepage": "https://github.com/angelxtry/do-it-server#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "cookie-parser": "^1.4.4",
