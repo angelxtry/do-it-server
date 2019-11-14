@@ -36,10 +36,10 @@ app.use(
     saveUninitialized: false,
     secret: process.env.COOKIE_SECRET,
     name: 'domybest',
-    domain: env && '.doitreviews.com',
     cookie: {
       httpOnly: true,
       secure: false,
+      domain: env && '.doitreviews.com',
     },
   }),
 );
