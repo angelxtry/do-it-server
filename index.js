@@ -50,6 +50,10 @@ app.use('/api/user', userRouter);
 app.use('/api/todo', todoRouter);
 app.use('/api/todos', todosRouter);
 
+app.get('/', (req, res) => {
+  res.send('doitreviews.com');
+});
+
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
