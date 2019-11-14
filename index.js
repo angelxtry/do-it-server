@@ -15,6 +15,7 @@ const todosRouter = require('./routes/todos');
 dotenv.config();
 
 const app = express();
+const env = process.env.NODE_ENV === 'production';
 const port = process.env.PORT || 8085;
 db.sequelize.sync();
 passportConfig();
@@ -22,7 +23,7 @@ passportConfig();
 app.use(morgan('dev'));
 app.use(
   cors({
-    origin: true,
+    origin: env && 'http://doitreviews.com',
     credentials: true,
   }),
 );
@@ -35,6 +36,7 @@ app.use(
     saveUninitialized: false,
     secret: process.env.COOKIE_SECRET,
     name: 'domybest',
+    domain: env && '.doitreviews.com',
     cookie: {
       httpOnly: true,
       secure: false,

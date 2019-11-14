@@ -7,7 +7,7 @@
     "test": "mocha routes/user/user.spec.js && exit 1",
     "dev": "nodemon index.js",
     "reset": "node utils/resetTables.js",
-    "start": "NODE_ENV=prod pm2 start index.js"
+    "start": "NODE_ENV=production pm2 start index.js"
   },
   "repository": {
     "type": "git",

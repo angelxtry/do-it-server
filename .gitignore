@@ -10,5 +10,5 @@ node_modules
 ## pem
 *.pem
 
-## config
-config.json
+## script
+connect.sh
