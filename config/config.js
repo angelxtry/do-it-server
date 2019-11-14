@@ -23,4 +23,14 @@ module.exports = {
       timezone: '+09:00',
     },
   },
+  prod: {
+    username: process.env.PROD_USERNAME,
+    password: process.env.PROD_PASSWORD,
+    database: process.env.PROD_DATABASE,
+    host: process.env.PROD_HOST,
+    dialect: process.env.PROD_DIALECT,
+    options: {
+      timezone: '+09:00',
+    },
+  },
 };
