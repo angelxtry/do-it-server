@@ -39,7 +39,7 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: false,
-      domain: env && '.doitreviews.com',
+      domain: env && '.doitreviews.com:3000',
     },
   }),
 );
