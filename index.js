@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+const FileStore = require('session-file-store')(expressSession);
 const dotenv = require('dotenv');
 const passport = require('passport');
 
@@ -42,6 +43,7 @@ app.use(
       maxAge: 60 * 60 * 1000,
     },
     name: 'domybest',
+    store: new FileStore(),
   }),
 );
 app.use(passport.initialize());
