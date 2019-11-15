@@ -60,6 +60,7 @@ router.post('/logout', (req, res) => {
   req.logout();
   console.log('LOGOUT - before 2: ', req.session);
   req.session.destroy();
+  res.clearCookie('domybest');
   console.log('LOGOUT - after: ', req.session);
   res.status(200).json({ code: 200, message: 'Logout success' });
 });
