@@ -4,6 +4,7 @@ const local = require('./local');
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
+    console.log('SERIALIZE: ', user.id);
     return done(null, user.id);
   });
   passport.deserializeUser(async (id, done) => {
@@ -12,6 +13,7 @@ module.exports = () => {
         where: { id },
         attributes: ['id', 'nickname', 'email'],
       });
+      console.log('DESERIALIZE: ', user);
       return done(null, user);
     } catch (error) {
       console.error(error);
