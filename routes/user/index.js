@@ -59,10 +59,11 @@ router.post('/logout', (req, res) => {
   console.log('LOGOUT - before 1: ', req.session);
   req.logout();
   console.log('LOGOUT - before 2: ', req.session);
-  req.session.destroy();
-  res.clearCookie('domybest');
+  req.session.destroy(() => {
+    res.clearCookie('domybest');
+    res.status(200).json({ code: 200, message: 'Logout success' });
+  });
   console.log('LOGOUT - after: ', req.session);
-  res.status(200).json({ code: 200, message: 'Logout success' });
 });
 
 // GET api/user
