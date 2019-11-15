@@ -35,12 +35,13 @@ app.use(
     resave: false,
     saveUninitialized: false,
     secret: process.env.COOKIE_SECRET,
-    name: 'domybest',
     cookie: {
       httpOnly: true,
       secure: false,
       domain: env && '.doitreviews.com',
+      maxAge: 60 * 60 * 1000,
     },
+    name: 'domybest',
   }),
 );
 app.use(passport.initialize());
@@ -59,3 +60,12 @@ app.listen(port, () => {
 });
 
 module.exports = app;
+
+// app.use(
+//   require('express-session')({
+//     secret: 'crackalackin',
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: { secure: false, maxAge: 4 * 60 * 60 * 1000 }, // 4 hours
+//   }),
+// );
