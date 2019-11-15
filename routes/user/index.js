@@ -56,8 +56,11 @@ router.post('/login', (req, res, next) => {
 
 // POST api/user/logout
 router.post('/logout', (req, res) => {
+  console.log('LOGOUT - before 1: ', req.session);
   req.logout();
+  console.log('LOGOUT - before 2: ', req.session);
   req.session.destroy();
+  console.log('LOGOUT - after: ', req.session);
   res.status(200).json({ code: 200, message: 'Logout success' });
 });
 
