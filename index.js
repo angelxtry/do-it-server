@@ -23,7 +23,7 @@ passportConfig();
 app.use(morgan('dev'));
 app.use(
   cors({
-    origin: true,
+    origin: env ? '.doitreviews.com' : true,
     credentials: true,
   }),
 );
