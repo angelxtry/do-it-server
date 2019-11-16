@@ -21,7 +21,7 @@ validate.timestamp = (timestamp) => {
 
 validate.duration = (duration) => {
   const result = parseInt(duration, 10);
-  if (Number.isNaN(result) || result < 25 || result > 60) {
+  if (Number.isNaN(result) || result < 0 || result > 60) {
     throw new Error('타이머 시간 설정 오류.');
   }
   return result;
