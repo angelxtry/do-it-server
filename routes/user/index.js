@@ -31,7 +31,7 @@ router.post('/signup', async (req, res, next) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (error, user, info) => {
     if (error) {
-      console(error);
+      console.error(error);
       return next(error);
     }
     if (info) {
@@ -56,14 +56,14 @@ router.post('/login', (req, res, next) => {
 
 // POST api/user/logout
 router.post('/logout', (req, res) => {
-  console.log('LOGOUT - before 1: ', req.session);
+  // console.log('LOGOUT - before 1: ', req.session);
   req.logout();
-  console.log('LOGOUT - before 2: ', req.session);
+  // console.log('LOGOUT - before 2: ', req.session);
   req.session.destroy(() => {
     res.clearCookie('domybest');
     res.status(200).json({ code: 200, message: 'Logout success' });
   });
-  console.log('LOGOUT - after: ', req.session);
+  // console.log('LOGOUT - after: ', req.session);
 });
 
 // GET api/user

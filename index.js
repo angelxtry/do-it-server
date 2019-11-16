@@ -40,7 +40,7 @@ app.use(
       httpOnly: true,
       secure: false,
       domain: env && '.doitreviews.com',
-      maxAge: 60 * 60 * 1000,
+      maxAge: 2 * 60 * 60 * 1000,
     },
     name: 'domybest',
     store: new FileStore(),
@@ -58,16 +58,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`http://localhost:${port}`);
+  console.log(`Port: ${port}`);
 });
 
 module.exports = app;
-
-// app.use(
-//   require('express-session')({
-//     secret: 'crackalackin',
-//     resave: true,
-//     saveUninitialized: true,
-//     cookie: { secure: false, maxAge: 4 * 60 * 60 * 1000 }, // 4 hours
-//   }),
-// );
